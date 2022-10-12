@@ -1,0 +1,43 @@
+﻿@page "/"
+@inject IJSRuntime js
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />\
+<p>
+    @CurrentUser.Identity.Name
+</p>
+
+<button @onclick="PlaySound"> PlaySound</button>
+<audio id="notification" src="sounds/mixkit-sci-fi-click-900.wav"></audio>
+<AuthorizeView Roles="User">
+    <Authorized>
+        User not admin
+
+    </Authorized>
+    <NotAuthorized>
+        not users
+    </NotAuthorized>
+</AuthorizeView>  
+
+@code{
+    [CascadingParameter]
+
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentUser = (await authenticationStateTask).User;
+
+    }
+
+    public async Task PlaySound(){
+        await js.InvokeVoidAsync("PlayAudio", "notification");
+    }
+
+}
