@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Components.Routing;
+@using MudBlazor
+
+<MudNavMenu>
+    @foreach (var userModule in UserModules)
+    {
+        @if (userModule.SubModules != null && userModule.SubModules.Any())
+        {
+            <MudNavGroup Title="@userModule.Name" Icon="@userModule.Icon" HideExpandIcon="IsSideMenuCollapsed">
+                @foreach (var subModule in userModule.SubModules)
+                {
+                    <MudNavLink Href="@subModule.Route" Match="NavLinkMatch.All" Icon="@subModule.Icon">@subModule.Name</MudNavLink>
+                }
+            </MudNavGroup>
+        }
+        else
+        {
+            <MudNavLink Href="@userModule.Route" Match="NavLinkMatch.All" Icon="@userModule.Icon">@userModule.Name</MudNavLink>
+        }
+    }
+</MudNavMenu>
