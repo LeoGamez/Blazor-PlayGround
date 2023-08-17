@@ -24,33 +24,23 @@ namespace Playground.Wasm.Shared.MockData
                     Icon = Icons.Material.Filled.Dashboard,
                     Route = "/dashboard"
                 },
-                //! Example of how to use user modules for menu
-                //new UserModule
-                //{
-                //    Id = "2",
-                //    Name = "Orders",
-                //    Icon = Icons.Material.Filled.List,
-                //    Route = "/orders",
-                //    SubModules = new List<UserModule>
-                //    {
-                //        new UserModule
-                //        {
-                //            Id = "2.1",
-                //            Name = "New Orders",
-                //            Icon = Icons.Material.Filled.FileOpen,
-                //            Route = "/orders/new"
-                //        },
-                //        new UserModule
-                //        {
-                //            Id = "2.2",
-                //            Name = "Pending Orders",
-                //            Icon = Icons.Material.Filled.FilePresent,
-                //            Route = "/orders/pending"
-                //        },
-                //        // Add more submodules as needed
-                //    }
-                //},
-                // Add more modules as needed
+                new UserModule
+                {
+                    Id = "2",
+                    Name = "MUD Components",
+                    Icon = Icons.Material.Filled.List,
+                    Route = "/components",
+                    SubModules = new List<UserModule>
+                    {
+                        new UserModule
+                        {
+                            Id = "2.1",
+                            Name = "MUD-DataGrid",
+                            Icon = Icons.Material.Filled.FileOpen,
+                            Route = "/datagrid"
+                        }
+                    }
+                },
             };
 
             return userModules;
