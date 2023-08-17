@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Playground.Wasm.Application.Config;
+using Playground.Wasm.Infrastructure.Repositories;
 using Playground.Wasm.Server.Services;
+using System.Reflection;
 
 namespace Playground.Wasm
 {
@@ -14,6 +17,10 @@ namespace Playground.Wasm
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
             builder.Services.AddScoped<IUserModuleService, UserModuleService>();
+            builder.Services.AddScoped<IMockEntityRepository, MockEntityRepository>();
+
+            builder.Services.AddAutoMapper(typeof(MapperProfile));
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(MapperProfile).Assembly));
 
             var app = builder.Build();
 

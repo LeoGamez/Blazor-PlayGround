@@ -1,0 +1,22 @@
+﻿@page "/datagrid"
+@using Playground.Wasm.Shared.Models.MockEntities;
+
+
+<MudDataGrid Items="@dataList"
+             RowsPerPage="5"
+             ShowMenuIcon="true"
+             Filterable="true"
+             Hideable="true"
+             Loading="dataLoading">
+    <Columns>
+        <PropertyColumn Property="x => x.Id" />
+        <PropertyColumn Property="x => x.Name" />
+        <PropertyColumn Property="x => x.Description" />
+    </Columns>
+    <ToolBarContent>
+        <MudIconButton Icon="@Icons.Material.Filled.Refresh" OnClick="LoadData" />
+    </ToolBarContent>
+    <PagerContent>
+        <MudDataGridPager T="MockEntityDto" />
+    </PagerContent>
+</MudDataGrid>
