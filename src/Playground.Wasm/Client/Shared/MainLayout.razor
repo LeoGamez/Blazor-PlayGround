@@ -17,37 +17,9 @@
     </MudDrawer>
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+            <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
             <br />
             @Body
         </MudContainer>
     </MudMainContent>
 </MudLayout>
-
-@code {
-    bool _drawerOpen = false;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
-
-    MudTheme MainTheme = new MudTheme()
-        {
-            Palette = new PaletteLight()
-            {
-                Primary = Colors.Blue.Darken3,
-                Secondary = Colors.Blue.Darken3,
-                AppbarBackground = Colors.Blue.Darken3,
-            },
-            PaletteDark = new PaletteDark()
-            {
-                Primary = Colors.Blue.Lighten1
-            },
-
-            LayoutProperties = new LayoutProperties()
-            {
-                DrawerWidthLeft = "260px",
-                DrawerWidthRight = "300px"
-            }
-        };
-}
