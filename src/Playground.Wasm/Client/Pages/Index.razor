@@ -1,10 +1,22 @@
 ﻿@page "/"
+@inject IMarkerFactory MarkerFactory ;
+@inject IPolygonFactory polylineFactory ;
+<style>
+    #mapId {
+        height: 400px;
+    }
+</style>
 
 <PageTitle>Home - Playground</PageTitle>
+<MudButton OnClick="AddMarkers"> CLick me</MudButton>
+<MudButton OnClick="ClearLine"> Clear</MudButton>
+<Map @ref="mapRef" MapOptions="@mapOptions"></Map>
 
 <MudGrid>
     <MudItem xs="12">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=12</MudPaper>
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+          
+        </MudPaper>
     </MudItem>
     <MudItem xs="6">
         <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=6</MudPaper>
@@ -25,3 +37,65 @@
         <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
     </MudItem>
 </MudGrid>
+@code {
+    private Map mapRef;
+
+    private LatLng center;
+    private LatLng firstMarkerLatLng;
+    private LatLng secondMarkerLatLng;
+    private LatLng thirdMarkerLatLng;
+    private LatLng markerWithOptionsLatLng;
+
+    private Marker markerWithOptions;
+    private Marker marker1;
+    private Marker marker2;
+    private Marker marker3;
+    private Polyline line;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private MapOptions mapOptions = new MapOptions()
+        {
+            DivId = "mapId",
+            Center = new LatLng(25.686613, -100.316116),
+            Zoom = 13,
+            UrlTileLayer = "https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png",
+            SubOptions = new MapSubOptions()
+            {
+                Attribution = "&copy; <a lhref='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
+                TileSize = 512,
+                ZoomOffset = -1,
+                MaxZoom = 19,
+            }
+        };
+
+
+    private async Task AddMarkers()
+    {
+        this.firstMarkerLatLng = new LatLng(25.686613, -100.316116);
+        this.secondMarkerLatLng = new LatLng(23.285495, -103.691064);
+        this.thirdMarkerLatLng = new LatLng(24.279103, -102.685534);
+        this.marker1 = await this.MarkerFactory.CreateAndAddToMap(this.firstMarkerLatLng, mapRef);
+        this.marker2 = await this.MarkerFactory.CreateAndAddToMap(this.secondMarkerLatLng, mapRef);
+        this.marker3 = await this.MarkerFactory.CreateAndAddToMap(this.thirdMarkerLatLng, mapRef);
+
+        var list = new List<LatLng>()
+        {
+            firstMarkerLatLng,secondMarkerLatLng
+        };
+
+        this.line = await this.polylineFactory.CreateAndAddToMap(list,mapRef);
+    }
+
+    private async Task ClearLine()
+    {
+        await this.line.Remove();
+    }
+
+}
