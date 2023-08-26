@@ -38,6 +38,13 @@ namespace Playground.Wasm.Shared.MockData
                             Name = "MUD-DataGrid",
                             Icon = Icons.Material.Filled.FileOpen,
                             Route = "/datagrid"
+                        },
+                         new UserModule
+                        {
+                            Id = "2.2",
+                            Name = "Map-View",
+                            Icon = Icons.Material.Filled.Pin,
+                            Route = "/mapview"
                         }
                     }
                 },
