@@ -1,0 +1,12 @@
+﻿@page "/mapview"
+@inject IMarkerFactory MarkerFactory
+@inject IPolylineFactory polylineFactory
+@inject IIconFactory iconFactory
+<style>
+    #mapId {
+        height: 400px;
+    }
+</style>
+<MudButton OnClick="AddMarkers"> Add Random Pins</MudButton>
+<MudButton OnClick="ClearLine"> Clear Pins</MudButton>
+<Map @ref="mapRef" MapOptions="@mapOptions"></Map>
