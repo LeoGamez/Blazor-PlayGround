@@ -13,8 +13,19 @@ namespace Playground.Wasm.Client.Pages
     {
         private Map mapRef;
         private List<Marker> markers = new();
+        private List<LatLng> points = new();
         private Polyline line;
         Random random = new Random();
+        
+        private void GeneratePoints()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                double lat = DoubleRandom(-70, 70);
+                double lon = DoubleRandom(-150, 150);
+                points.Add(new(lat, lon));
+            }
+        }
 
         private MapOptions mapOptions = new MapOptions()
         {
@@ -46,20 +57,19 @@ namespace Playground.Wasm.Client.Pages
                 IconRef = icon
             };
 
-            LatLng? posPrev = null;
-            for (int i = 0; i < 20; i++)
+            GeneratePoints();
+
+            for (int i = 0; i < points.Count; i++)
             {
-                double lat = DoubleRandom(-70, 70);
-                double lon = DoubleRandom(-180, 180);
-                LatLng pos = new(lat, lon);
+                var current = points[i];
+                var prev= i==0? points[^1] : points[i - 1];
 
-                var marker = await this.MarkerFactory.CreateAndAddToMap(pos, mapRef, markerOptions);
-
-                if (posPrev != null)
+                var marker = await this.MarkerFactory.CreateAndAddToMap(current, mapRef, markerOptions);
+                if (i>0)
                 {
                     await marker.OnMouseOver(async (e) =>
                     {
-                        line = await this.polylineFactory.CreateAndAddToMap(new List<LatLng>() { posPrev, pos }, mapRef);
+                        line = await this.polylineFactory.CreateAndAddToMap(new List<LatLng>() { current, prev }, mapRef);
                     });
 
                     await marker.OnMouseOut(async (e) =>
@@ -69,10 +79,7 @@ namespace Playground.Wasm.Client.Pages
                 }
 
                 markers.Add(marker);
-
-                posPrev = pos;
             }
-
         }
 
         private async Task ClearLine()
