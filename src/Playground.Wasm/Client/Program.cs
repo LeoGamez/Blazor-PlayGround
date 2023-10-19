@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 using Playground.Wasm.Client;
+using Playground.Wasm.Client.Services;
 
 namespace Playground.Wasm.Client
 {
@@ -18,6 +19,8 @@ namespace Playground.Wasm.Client
             builder.Services.AddMudServices();
 
             builder.Services.AddBlazorLeafletMaps();
+
+            builder.Services.AddScoped<ISpreadsheetService, SpreadsheetService>();
 
             await builder.Build().RunAsync();
         }

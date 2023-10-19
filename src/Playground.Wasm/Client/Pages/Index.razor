@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Playground.Wasm.Client.Components
 
 
 <PageTitle>Home - Playground</PageTitle>
@@ -50,7 +51,9 @@
         </MudPaper>
     </MudItem>
     <MudItem xs="6">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=6</MudPaper>
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+            <SpreadSheetUploader/>
+        </MudPaper>
     </MudItem>
     <MudItem xs="3">
         <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
