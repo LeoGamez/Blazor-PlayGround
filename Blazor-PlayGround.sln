@@ -7,25 +7,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2F400E68-E51
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Server.Playground", "src\Blazor.Server.Playground\Blazor.Server.Playground.csproj", "{9FA3D8F6-7F5C-40CD-BC10-53BABFEB3BE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wasm.Server", "src\Playground.Wasm\Server\Playground.Wasm.Server.csproj", "{76F90C10-9E66-4D57-BC37-09334C8211C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground.Wasm.Server", "src\Playground.Wasm\Server\Playground.Wasm.Server.csproj", "{76F90C10-9E66-4D57-BC37-09334C8211C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wasm.Client", "src\Playground.Wasm\Client\Playground.Wasm.Client.csproj", "{C4D06FDF-A40D-4979-B91B-96EC8AEB63D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground.Wasm.Client", "src\Playground.Wasm\Client\Playground.Wasm.Client.csproj", "{C4D06FDF-A40D-4979-B91B-96EC8AEB63D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wasm.Shared", "src\Playground.Wasm\Shared\Playground.Wasm.Shared.csproj", "{DBC0CCB7-C1D3-49F9-B3E8-41C363790669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground.Wasm.Shared", "src\Playground.Wasm\Shared\Playground.Wasm.Shared.csproj", "{DBC0CCB7-C1D3-49F9-B3E8-41C363790669}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{A4B79FFE-E9D3-4C55-9D99-B874C6F5B7B5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wasm", "Wasm", "{2DA8E8D3-E112-4BC3-AC08-D740EA3951CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wasm.Application", "src\Playground.Wasm\Application\Playground.Wasm.Application\Playground.Wasm.Application.csproj", "{F90271B8-C277-4CF3-BCE6-93188D46AEF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground.Wasm.Application", "src\Playground.Wasm\Application\Playground.Wasm.Application\Playground.Wasm.Application.csproj", "{F90271B8-C277-4CF3-BCE6-93188D46AEF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wasm.Domain", "src\Playground.Wasm\Domain\Playground.Wasm.Domain\Playground.Wasm.Domain.csproj", "{CE1EA4F0-3562-4759-AC10-6CC33776C732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground.Wasm.Domain", "src\Playground.Wasm\Domain\Playground.Wasm.Domain\Playground.Wasm.Domain.csproj", "{CE1EA4F0-3562-4759-AC10-6CC33776C732}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground.Wasm.Infrastructure", "src\Playground.Wasm\Infrastructure\Playground.Wasm.Infrastructure\Playground.Wasm.Infrastructure.csproj", "{E83C45F7-010A-4EAE-9DDF-607A51C9DF78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{7700ADEC-A32C-4DC5-8226-E04AA9D1DABC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{5698317C-A45E-4BAF-BFF7-637C662490A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{48B88DBC-8E4E-4028-8D9B-2AC28F636A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaygroundWebApp", "src\PlaygroundWebApp\PlaygroundWebApp\PlaygroundWebApp\PlaygroundWebApp.csproj", "{748E7B6F-C5A2-4D11-B1D3-E46B9BFA31A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaygroundWebApp.Client", "src\PlaygroundWebApp\PlaygroundWebApp\PlaygroundWebApp.Client\PlaygroundWebApp.Client.csproj", "{94184517-3650-41DD-835C-F3BF4359B5E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaygroundWebApp.Shared", "src\PlaygroundWebApp\PlaygroundWebApp.Shared\PlaygroundWebApp.Shared.csproj", "{E2B0715A-D53A-4200-98C8-31E3525FEFCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +69,18 @@ Global
 		{E83C45F7-010A-4EAE-9DDF-607A51C9DF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E83C45F7-010A-4EAE-9DDF-607A51C9DF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E83C45F7-010A-4EAE-9DDF-607A51C9DF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{748E7B6F-C5A2-4D11-B1D3-E46B9BFA31A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{748E7B6F-C5A2-4D11-B1D3-E46B9BFA31A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{748E7B6F-C5A2-4D11-B1D3-E46B9BFA31A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{748E7B6F-C5A2-4D11-B1D3-E46B9BFA31A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94184517-3650-41DD-835C-F3BF4359B5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94184517-3650-41DD-835C-F3BF4359B5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94184517-3650-41DD-835C-F3BF4359B5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94184517-3650-41DD-835C-F3BF4359B5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2B0715A-D53A-4200-98C8-31E3525FEFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2B0715A-D53A-4200-98C8-31E3525FEFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2B0715A-D53A-4200-98C8-31E3525FEFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2B0715A-D53A-4200-98C8-31E3525FEFCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +97,10 @@ Global
 		{E83C45F7-010A-4EAE-9DDF-607A51C9DF78} = {5698317C-A45E-4BAF-BFF7-637C662490A9}
 		{7700ADEC-A32C-4DC5-8226-E04AA9D1DABC} = {2DA8E8D3-E112-4BC3-AC08-D740EA3951CA}
 		{5698317C-A45E-4BAF-BFF7-637C662490A9} = {2DA8E8D3-E112-4BC3-AC08-D740EA3951CA}
+		{48B88DBC-8E4E-4028-8D9B-2AC28F636A2F} = {2F400E68-E51D-487A-84D6-E6AE16F4C592}
+		{748E7B6F-C5A2-4D11-B1D3-E46B9BFA31A7} = {48B88DBC-8E4E-4028-8D9B-2AC28F636A2F}
+		{94184517-3650-41DD-835C-F3BF4359B5E6} = {48B88DBC-8E4E-4028-8D9B-2AC28F636A2F}
+		{E2B0715A-D53A-4200-98C8-31E3525FEFCE} = {48B88DBC-8E4E-4028-8D9B-2AC28F636A2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91DD0C32-4DA7-488C-9226-7889277F3E63}

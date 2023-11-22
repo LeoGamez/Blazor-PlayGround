@@ -1,0 +1,26 @@
+﻿@using MudBlazor
+
+@inherits LayoutComponentBase
+<MudThemeProvider Theme="MainTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout Class="blue-grey lighten-5" Style="height:100vh">
+    <MudAppBar Dense="true">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       Edge="Edge.Start"
+                       OnClick="@((e) => DrawerToggle())" />
+        Playground
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen" Variant="@DrawerVariant.Mini">
+        <NavMenu IsSideMenuCollapsed="@(!_drawerOpen)" />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+            <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+            <br />
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
