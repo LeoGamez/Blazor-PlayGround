@@ -1,15 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Components.Rendering;
-using Newtonsoft.Json;
 using Playground.Wasm.Client.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json.Nodes;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.JSInterop;
 
 namespace Playground.Wasm.Client.Components
