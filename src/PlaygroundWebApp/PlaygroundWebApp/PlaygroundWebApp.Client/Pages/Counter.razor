@@ -5,34 +5,40 @@
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p role="status">Current count: @currentCountNoWorker</p>
 
 
 <MudBlazor.MudButton @onclick="IncrementCount">Click me</MudBlazor.MudButton>
 
-<p role="status">Current count B: @currentCountb</p>
+<p role="status">Current count: @currentCountWorker</p>
+
+<MudBlazor.MudButton @onclick="IncrementCountWorker">Click me</MudBlazor.MudButton>
+
+<p role="status">Current count B: @currentCount</p>
 
 
-<MudBlazor.MudButton @onclick="IncrementCountB">Click me2</MudBlazor.MudButton>
+<MudBlazor.MudButton @onclick="TestButton">TEST</MudBlazor.MudButton>
 
 @code {
     private int currentCount = 0;
-    private int currentCountb = 0;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await Task.Delay(6000);
-    }
+    private int currentCountWorker = 0;
+    private int currentCountNoWorker = 0;
 
     private async Task IncrementCount()
     {
         await HeavyComputeAsync();
-        currentCount += 3;
+        currentCountNoWorker += 3;
     }
 
-    private void IncrementCountB()
+    private async Task IncrementCountWorker()
     {
-        currentCountb += 1;
+        await HeavyComputeAsync();
+        currentCountWorker += 3;
+    }
+
+    private void TestButton()
+    {
+        currentCount += 1;
     }
 
 
