@@ -1,0 +1,26 @@
+﻿@page "/todo"
+@using Playground.Wasm.Shared.Models.Todo
+
+
+
+
+<MudPaper>
+    <MudDataGrid Items="@_todoList"
+                 RowsPerPage="5"
+                 ShowMenuIcon="true"
+                 Filterable="true"
+                 Hideable="true">
+        <Columns>
+            <PropertyColumn Property="x => x.Id" />
+            <PropertyColumn Property="x => x.Description" />
+            <PropertyColumn Property="x => x.Done" />
+            <PropertyColumn Property="x => x.DoneDate" />
+        </Columns>
+        <ToolBarContent>
+            <MudIconButton Icon="@Icons.Material.Filled.Refresh" />
+        </ToolBarContent>
+        <PagerContent>
+            <MudDataGridPager T="TodoDto" />
+        </PagerContent>
+    </MudDataGrid>
+</MudPaper>

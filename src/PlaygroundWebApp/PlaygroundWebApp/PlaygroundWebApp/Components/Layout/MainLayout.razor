@@ -14,7 +14,7 @@
         Playground
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen" Variant="@DrawerVariant.Mini">
-        <NavMenu IsSideMenuCollapsed="@(!_drawerOpen)" />
+        <MudNavLink Href="/counter" Match="NavLinkMatch.All">Counter</MudNavLink>
     </MudDrawer>
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.ExtraLarge">
