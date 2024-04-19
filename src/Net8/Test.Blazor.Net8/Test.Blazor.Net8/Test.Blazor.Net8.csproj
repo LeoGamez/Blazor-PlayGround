@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Test.Blazor.Net8.Client\Test.Blazor.Net8.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
+    <PackageReference Include="SpawnDev.BlazorJS" Version="2.2.85" />
+    <PackageReference Include="SpawnDev.BlazorJS.WebWorkers" Version="2.2.85" />
+  </ItemGroup>
+
+</Project>

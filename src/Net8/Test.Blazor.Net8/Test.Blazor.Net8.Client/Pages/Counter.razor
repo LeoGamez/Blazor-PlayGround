@@ -1,0 +1,57 @@
+﻿@page "/counter"
+@using SpawnDev.BlazorJS.WebWorkers
+@using Test.Blazor.Net8.Client.MyServices
+@inject IIntensiveService intensiveService
+@inject WebWorkerService workerService
+@rendermode InteractiveWebAssembly
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count without worker: @currentCount</p>
+
+<button @onclick="IncrementCount">Click me Without Worker</button>
+
+
+<p role="status">Current count of Test: @currentCountb</p>
+
+<button @onclick="IncrementCountTest">Click me For testing responsiveness</button>
+
+
+<p role="status">Current count of WOrker Button: @currentCountworker</p>
+
+<button @onclick="IncrementCountWorker">Click me using worker</button>
+
+<progress id="file" value="@currentCountworker" max="100">  </progress>
+
+@code {
+    private int currentCount = 0;
+    private int currentCountb = 0;
+    private int currentCountworker = 0;
+
+    private async Task IncrementCount()
+    {
+        currentCount += await intensiveService.HeavyMethod(1);
+    }
+
+    private void IncrementCountTest() => currentCountb += 1;
+
+    private async Task IncrementCountWorker()
+    {
+        currentCountworker = 0;
+        var webWorker = await workerService.GetWebWorker();
+
+        // Call GetService<ServiceInterface> on a web worker to get a proxy for the service on the web worker.
+        // GetService can only be called with Interface types
+        var heavyWorkerService = webWorker.GetService<IIntensiveService>();
+
+
+        // await intensiveService.HeavyListAsync(100, (i) =>
+        await heavyWorkerService.HeavyListAsync(100, (i) =>
+        {
+            // the worker thread can call this method to report progress if desired
+            currentCountworker += 1;
+            StateHasChanged();
+        });
+    }
+}
