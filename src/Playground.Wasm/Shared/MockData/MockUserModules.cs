@@ -23,6 +23,13 @@ namespace Playground.Wasm.Shared.MockData
                     Name = "Dashboard",
                     Icon = Icons.Material.Filled.Dashboard,
                     Route = "/dashboard"
+                },               
+                new UserModule
+                {
+                    Id = "3",
+                    Name = "Todo List",
+                    Icon = Icons.Material.Filled.ListAlt,
+                    Route = "/todo"
                 },
                 new UserModule
                 {

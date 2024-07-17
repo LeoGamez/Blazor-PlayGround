@@ -1,13 +1,8 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Playground.Wasm.Domain.Entities;
 
-namespace Playground.Wasm.Application.Messages.Queries.Todos.GetTodos
+namespace Playground.Wasm.Application.Messages.Queries.Todos.GetTodos;
+
+public class GetTodosQuery : IRequest<IEnumerable<Todo>>
 {
-    public class GetTodosQuery : IRequest<IEnumerable<Todo>>
-    {
-    }
 }

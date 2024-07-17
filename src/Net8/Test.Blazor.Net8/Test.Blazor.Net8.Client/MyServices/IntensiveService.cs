@@ -20,7 +20,7 @@ public class IntensiveService : IIntensiveService
 
     public async Task HeavyListAsync(int max, Action<int> numberCallback)
     {
-        for (int i = 0; i < max*100; i++)
+        for (int i = 0; i < max; i++)
         {
             numberCallback(i);
         }

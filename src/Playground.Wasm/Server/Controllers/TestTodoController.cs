@@ -1,15 +1,16 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Playground.Wasm.Application.Messages.Queries.Todos.GetTodos;
 
 namespace Playground.Wasm.Server.Controllers
 {
-    public class TodosController : ControllerBase
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TestTodoController : ControllerBase
     {
         private readonly IMediator mediator;
 
-        public TodosController(IMediator mediator)
+        public TestTodoController(IMediator mediator)
         {
             this.mediator = mediator;
         }
@@ -20,4 +21,6 @@ namespace Playground.Wasm.Server.Controllers
             return new OkObjectResult(await this.mediator.Send(new GetTodosQuery()));
         }
     }
+
 }
+
